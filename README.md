@@ -15,7 +15,7 @@ The codes have been tested on Ubuntu 16.04, NVIDIA TITIAN X GPU, Python 2.7.
 [stevens_cr_winchester_sample1]: ./images/AICITY/stevens_cr_winchester_sample1.jpeg "stevens_cr_winchester_sample1"
 [stevens_cr_winchester_sample2]: ./images/AICITY/stevens_cr_winchester_sample2.jpeg "stevens_cr_winchester_sample2"
 [walsh_santomas_sample1]: ./images/AICITY/walsh_santomas_sample1.jpeg "walsh_santomas_sample1"
-[walsh_santomas_sample1]: ./images/AICITY/walsh_santomas_sample1.jpeg "walsh_santomas_sample1"
+[walsh_santomas_sample2]: ./images/AICITY/walsh_santomas_sample2.jpeg "walsh_santomas_sample2"
 [480]: ./images/AICITY/480.png "480"
 [540]: ./images/AICITY/540.png "540"
 [1080]: ./images/AICITY/1080.png "1080"
