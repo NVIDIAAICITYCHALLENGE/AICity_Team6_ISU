@@ -8,6 +8,8 @@ This repository contains the source codes of RDFCN implementation for the detect
 
 * Add data inference function to output detection .txt files, one per image.
 
+The codes have been tested on Ubuntu 16.04, NVIDIA TITIAN X GPU, Python 2.7.
+
 ## Introduction
 
 ### NVIDIA AICity Challenge 2017
@@ -24,7 +26,7 @@ Detailed information of AVSS2017 Challenge can be found [here](https://iwt4s.wor
 
 UA-DETRAC dataset consists of 10 hours of videos captured with a Cannon EOS 550D camera at 24 different locations at Beijing and Tianjin in China. 
 
-Detailed information of UA-DETRAC can be found [here](http://detrac-db.rit.albany.edu/)
+Detailed information of UA-DETRAC can be found [here](http://detrac-db.rit.albany.edu/).
 
 ### RDFCN
 
@@ -35,6 +37,25 @@ RDFCN stands for Region-based Deformable Fully Convolutional Networks. RDFCN con
 * Deformable ConvNets (Deformable Convolutional Networks). Deformable ConvNets is initially described in an [arxiv tech report](https://arxiv.org/abs/1703.06211). The key idea of Deformable ConvNets is increasing classification accuracy by using adaptive-shaped convolutional filter.
 
 ## Installation
+
+1. Carefully follow the instructions of the offical implementation for Deformable Convolutional Networks based on MXNet [here](https://github.com/msracver/Deformable-ConvNets). 
+
+At the end of this step: 
+
+* The Deformable ConvNets repo should have been downloaded;
+
+* MXNet should have been downloaded and properly compiled;
+
+* The R-FCN demo should be able to run by `python ./rfcn/demo.py`.
+
+2. clone this repo into the same directory of Deformable-ConvNets:
+
+`cd path/to/Deformable-ConvNets/..`
+`git clone https://github.com/wkelongws/RDFCN_UADETRAC_AICITY`
+
+3. implement the contribution codes in this repo to the Deformable-ConvNets folder:
+
+`python RDFCN_UADETRAC_AICITY\setup.py`
 
 ## Usage
 
