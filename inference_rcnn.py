@@ -244,7 +244,11 @@ def inference_rcnn_AICity(cfg, dataset, image_set, root_path, dataset_path,
 	image_name_length = len(image_name.split('/'))
 	imagefile_name = image_name.split('/')[image_name_length-1]
 	image_name_lean = imagefile_name.split('.')[0]
-	output_file = os.path.join('/raid10/home_ext/Deformable-ConvNets/data/data_Shuo/AICity_480', 'output_allall', image_name_lean+ '.txt')
+    
+    if not os.path.exists(os.path.join('data', 'output')):
+        os.makedirs(os.path.join('data', 'output'))
+    
+	output_file = os.path.join('data', 'output', image_name_lean+ '.txt')
 	
         thefile = open(output_file,'a')
 	

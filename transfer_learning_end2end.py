@@ -119,7 +119,7 @@ def train_net(args, ctx, pretrained, epoch, prefix, begin_epoch, end_epoch, lr, 
     #                    max_label_shapes=[max_label_shape for _ in range(batch_size)], fixed_param_prefix=fixed_param_prefix)
 
     #freeze parameters using fixed_param_names:list of str
-    para_file = open('/raid10/home_ext/Deformable-ConvNets/data/data_Shuo/UADETRAC/arg_params.txt')
+    para_file = open('/raid10/home_ext/Deformable-ConvNets/rfcn/symbols/arg_params.txt')
     para_list = [line.split('<')[0] for line in para_file.readlines()]
     para_list.remove('rfcn_cls_weight')
     para_list.remove('rfcn_cls_bias')

@@ -12,12 +12,12 @@ os.environ['MXNET_ENABLE_GPU_P2P'] = '0'
 this_dir = os.path.dirname(__file__)
 sys.path.insert(0, os.path.join(this_dir, '..', '..', 'rfcn'))
 
-import train_end2end
-import Inference_Shuo
+import transfer_learning_end2end
+#import test
 
 if __name__ == "__main__":
-    train_end2end.main()
-    Inference_Shuo.main()
+    transfer_learning_end2end.main()
+#   test.main()
 
 
 

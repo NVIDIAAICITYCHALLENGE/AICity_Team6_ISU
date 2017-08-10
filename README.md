@@ -1,28 +1,28 @@
-dfg
+# Implementation of multi-class object detection using RDFCN for NVIDIA AICity Challenge 2017 and AVSS2017 UA_DETRAC Challenge
 
+This repository contains the source codes of RDFCN implementation on VIDIA AICity Challenge and AVSS2017 UA_DETRAC Challenge. This source code is built upon the [original Deformable-ConvNets](https://github.com/msracver/Deformable-ConvNets) by rearchers from Microsoft Research Asia. The main contribution of this repo to the origianl repo includes:
 
-inference_rcnn.py in Deformable-ConvNets/rfcn/function/
+* Add two more data readers: one for NVIDIA AICity Challenge 2017; one for AVSS2017 UA_DETRAC Challenge.
 
-Inference_Shuo_AICity.py in Deformable-ConvNets/rfcn/
+* Implement a transfer learning
 
-rfcn_Inference_Shuo_AICity.py in Deformable-ConvNets/experiments/rfcn/
+* Add data inference function to output detection .txt files, one per image.
 
-resnet_v1_101_voc0712_rfcn_dcn_Shuo_AICityVOC1080_FreezeCOCO_rpnOnly_all_withsignal.yaml in Deformable-ConvNets/experiments/rfcn//cfgs/
+## Introduction
 
-AICity.py in Deformable-ConvNets/lib/dataset/
+### NVIDIA AICity Challenge 2017
 
-__init__.py in Deformable-ConvNets/lib/dataset/ (replace the original one)
+### AVSS2017 UA_DETRAC Challenge
 
-rfcn_AICityVOC1080_FreezeCOCO_rpnOnly_all_withsignal-0003.params in Deformable-ConvNets/output/rfcn_dcn_Shuo_AICity/resnet_v1_101_voc0712_rfcn_dcn_Shuo_AICityVOC1080_FreezeCOCO_rpnOnly_all_withsignal/1080_all/ (create this folder)
+### RDFCN
 
-[your test images.jpeg] in Deformable-ConvNets/data/data_Shuo/VOC1080/JPEGImages/
+## Installation
 
-test.txt in /Deformable-ConvNets/data/data_Shuo/VOC1080/ImageSets/ and replace the image names in it with your actual test image names​
-model_code.zip​
+## Usage
 
-Then cd to Deformable-ConvNets and run:
+## Experimental Results
 
-python experiments/rfcn/rfcn_Inference_Shuo_AICity.py --cfg experiments/rfcn//cfgs/resnet_v1_101_voc0712_rfcn_dcn_Shuo_AICityVOC1080_FreezeCOCO_rpnOnly_all_withsignal.yaml
+### NVIDIA AICity Challenge 2017
 
-You should see test images with detected boundary boxes.
+### AVSS2017 UA_DETRAC Challenge
 ​​
