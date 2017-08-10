@@ -12,14 +12,14 @@ The codes have been tested on Ubuntu 16.04, NVIDIA TITIAN X GPU, Python 2.7.
 
 [//]: # (Image References)
 
-[stevens_cr_winchester_sample1]: ./images/AICity/stevens_cr_winchester_sample1.jpeg "stevens_cr_winchester_sample1"
-[stevens_cr_winchester_sample2]: ./images/AICity/stevens_cr_winchester_sample2.jpeg "stevens_cr_winchester_sample2"
-[walsh_santomas_sample1]: ./images/AICity/walsh_santomas_sample1.jpeg "walsh_santomas_sample1"
-[walsh_santomas_sample1]: ./images/AICity/walsh_santomas_sample1.jpeg "walsh_santomas_sample1"
-[480]: ./images/AICity/480.png "480"
-[540]: ./images/AICity/540.png "540"
-[1080]: ./images/AICity/1080.png "1080"
-[mAP_AICity]: ./images/AICity/mAP_AICity.png "mAP_AICity"
+[stevens_cr_winchester_sample1]: ./images/AICITY/stevens_cr_winchester_sample1.jpeg "stevens_cr_winchester_sample1"
+[stevens_cr_winchester_sample2]: ./images/AICITY/stevens_cr_winchester_sample2.jpeg "stevens_cr_winchester_sample2"
+[walsh_santomas_sample1]: ./images/AICITY/walsh_santomas_sample1.jpeg "walsh_santomas_sample1"
+[walsh_santomas_sample1]: ./images/AICITY/walsh_santomas_sample1.jpeg "walsh_santomas_sample1"
+[480]: ./images/AICITY/480.png "480"
+[540]: ./images/AICITY/540.png "540"
+[1080]: ./images/AICITY/1080.png "1080"
+[mAP_AICity]: ./images/AICITY/mAP_AICity.png "mAP_AICity"
 
 [sample1]: ./images/UADETRAC/sample1.jpg "sample1"
 [sample2]: ./images/UADETRAC/sample2.jpg "sample2"
@@ -146,23 +146,13 @@ AICity submission results (ranked 2nd place in all three dataset by 3:08PM Aug 9
 
 ### AVSS2017 UA_DETRAC Challenge
 ​​
-Sample detections: (Annotations on the left with red boxes, detections on the right with green boxes, thresholded by condidence 0.5)
-
-![alt text][sample1]
-
-![alt text][sample2]
-
-![alt text][sample3]
-
-![alt text][sample4]
+Sample detections: (detection with green boxes, thresholded by condidence 0.5)
 
 ![alt text][sample5]
 
 ![alt text][sample6]
 
 ![alt text][sample7]
-
-![alt text][sample8]
 
 ![alt text][sample9]
 
