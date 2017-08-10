@@ -51,6 +51,7 @@ At the end of this step:
 2. clone this repo into the same directory of Deformable-ConvNets:
 
 `cd path/to/Deformable-ConvNets/..`
+
 `git clone https://github.com/wkelongws/RDFCN_UADETRAC_AICITY`
 
 3. implement the contribution codes in this repo to the Deformable-ConvNets folder:
@@ -58,6 +59,32 @@ At the end of this step:
 `python RDFCN_UADETRAC_AICITY\setup.py`
 
 ## Usage
+
+1. Download data from UADETRAC and AICity into `data/` folder
+
+2. Create configuration file
+
+3. `cd path/to/Deformable-ConvNets`
+
+4. Model training and Inference
+
+* To train model on UADETRAC, run:
+
+`python experiments/rfcn/rfcn_end2end_train_Shuo_UADETRAC.py --cfg path/to/your/configuration/file`
+
+* To detect vechiles from the test dataset using trained model on UADETRAC, run:
+
+`python experiments/rfcn/rfcn_Inference_Shuo_UADETRAC.py --cfg path/to/your/configuration/file`
+
+* To train model on AICity using transfer learning (the weights trained on COCO are used as default), run:
+
+`python experiments/rfcn/rfcn_transfer_learning_train_Shuo_AICity.py --cfg path/to/your/configuration/file`
+
+* To detect vechiles from the test dataset using trained model on UADETRAC, run:
+
+`python experiments/rfcn/rfcn_Inference_Shuo_AICity.py --cfg path/to/your/configuration/file`
+
+Two sample configuration files, one for UADETRAC and one for AICity, have been added to `experiments/rfcn/cfgs/`
 
 ## Experimental Results
 
