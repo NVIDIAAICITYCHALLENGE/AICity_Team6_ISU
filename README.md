@@ -112,6 +112,12 @@ At the end of this step:
 
 Two sample configuration files, one for UADETRAC and one for AICity, have been added to `experiments/rfcn/cfgs/`
 
+The weights of submitted model on aic1080 can be downloaded [here](https://1drv.ms/u/s!AmGvrNE6VIsKjUevX-7tNAhS_5AF).
+
+The weights of submitted model on aic540 can be downloaded [here](https://1drv.ms/u/s!AmGvrNE6VIsKjUmeEitETomFbCXQ).
+
+The weights of submitted model on aic480 can be downloaded [here](https://1drv.ms/u/s!AmGvrNE6VIsKjUiF1J2qP4TeNsRc).
+
 ## Experimental Results
 
 ### NVIDIA AICity Challenge 2017
