@@ -118,6 +118,8 @@ The weights of submitted model on aic540 can be downloaded [here](https://1drv.m
 
 The weights of submitted model on aic480 can be downloaded [here](https://1drv.ms/u/s!AmGvrNE6VIsKjUiF1J2qP4TeNsRc).
 
+The weights of submitted model on UADETRAC can be downloaded [here](https://1drv.ms/u/s!AmGvrNE6VIsKjVK3j5kV6BfDghAU).
+
 ## Experimental Results
 
 ### NVIDIA AICity Challenge 2017
