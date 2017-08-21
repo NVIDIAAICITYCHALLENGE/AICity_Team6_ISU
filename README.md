@@ -152,6 +152,8 @@ AICity submission results (ranked 2nd place in all three dataset by 3:08PM Aug 9
 
 ![alt text][1080]
 
+A preprocessed video demonstrating the detection on aic1080 can be found [here](https://youtu.be/F-lWyJ5Trk4). 0.2 is used as the detection confidence threshold in the demonstration video.
+
 ### AVSS2017 UA_DETRAC Challenge
 ​​
 Sample detections: (detection with green boxes, thresholded by condidence 0.5)
