@@ -147,6 +147,8 @@ Precision-Recall cuve on validation dataset (aic1080):
 
 AICity submission results (ranked 2nd place in all three dataset by 3:08PM Aug 9th, 2017)
 
+The [detailed results](http://smart-city-conference.com/AICityChallenge/results.html) have been pusblished on NVIDIA AICity challenge website. 
+
 * aic480
 
 ![alt text][480]
