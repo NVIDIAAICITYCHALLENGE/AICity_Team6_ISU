@@ -74,6 +74,13 @@ At the end of this step:
 
 * The R-FCN demo should be able to run by `python ./rfcn/demo.py`.
 
+Note: 
+
+For installing MXnet on NVIDIA Jetson TX2, if the above [installation instruction](https://github.com/msracver/Deformable-ConvNets) doesn't work, you can try to install MXnet libraries for Jetson TX2 as described in [here](http://mxnet.io/get_started/install.html). 
+
+Also, MxNet is only compatible with opencv-python >= 3.2.0.
+Please upgrade the OpenCV libraries for Jetson platform as described in [here](http://www.jetsonhacks.com/2017/04/05/build-opencv-nvidia-jetson-tx2/)
+
 2. clone this repo into the same directory of Deformable-ConvNets:
 
 `cd path/to/Deformable-ConvNets/..`
