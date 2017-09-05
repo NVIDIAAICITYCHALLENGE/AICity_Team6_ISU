@@ -8,7 +8,11 @@ This repository contains the source codes of RDFCN implementation for the detect
 
 * Add data inference function to output detection .txt files, one per image.
 
-The codes have been tested on Ubuntu 16.04, NVIDIA TITIAN X GPU, Python 2.7. 
+The codes have been tested on: 
+
+* Ubuntu 16.04, NVIDIA TITIAN X GPU, Python 2.7. 
+
+* NVIDIA Jetson TX2, Python 2.7.
 
 [//]: # (Image References)
 
@@ -76,10 +80,12 @@ At the end of this step:
 
 Note: 
 
-For installing MXnet on NVIDIA Jetson TX2, if the above [installation instruction](https://github.com/msracver/Deformable-ConvNets) doesn't work, you can try to install MXnet libraries for Jetson TX2 as described in [here](http://mxnet.io/get_started/install.html). 
+For installing MXnet on NVIDIA Jetson TX2, if the above [installation instruction](https://github.com/msracver/Deformable-ConvNets) doesn't work, you can try following these steps (The MXnet on Jetson TX2 installation has been verified by [Koray](https://www.linkedin.com/in/koray-ozcan-b003903b/)):
 
-Also, MxNet is only compatible with opencv-python >= 3.2.0.
-Please upgrade the OpenCV libraries for Jetson platform as described in [here](http://www.jetsonhacks.com/2017/04/05/build-opencv-nvidia-jetson-tx2/)
+a. MxNet is only compatible with opencv-python >= 3.2.0.
+Please first upgrade the OpenCV libraries for Jetson platform as described in [here](http://www.jetsonhacks.com/2017/04/05/build-opencv-nvidia-jetson-tx2/)
+
+b. Then install MXnet libraries for Jetson TX2 as described [here](http://mxnet.io/get_started/install.html) (Linux - Python - GPU - Build From Source).  
 
 2. clone this repo into the same directory of Deformable-ConvNets:
 
@@ -89,7 +95,9 @@ Please upgrade the OpenCV libraries for Jetson platform as described in [here](h
 
 3. implement the contribution codes in this repo to the Deformable-ConvNets folder:
 
-`python RDFCN_UADETRAC_AICITY\setup.py`
+`cd RDFCN_UADETRAC_AICITY` 
+
+`python setup.py`
 
 ## Usage
 
@@ -119,13 +127,35 @@ Please upgrade the OpenCV libraries for Jetson platform as described in [here](h
 
 Two sample configuration files, one for UADETRAC and one for AICity, have been added to `experiments/rfcn/cfgs/`
 
-The weights of submitted model on aic1080 can be downloaded [here](https://1drv.ms/u/s!AmGvrNE6VIsKjUevX-7tNAhS_5AF).
+The weights of submitted model (and the corresponding configuration file) on aic1080 can be downloaded [here](https://1drv.ms/u/s!AmGvrNE6VIsKjUevX-7tNAhS_5AF).
 
-The weights of submitted model on aic540 can be downloaded [here](https://1drv.ms/u/s!AmGvrNE6VIsKjUmeEitETomFbCXQ).
+The weights of submitted model (and the corresponding configuration file) on aic540 can be downloaded [here](https://1drv.ms/u/s!AmGvrNE6VIsKjUmeEitETomFbCXQ).
 
-The weights of submitted model on aic480 can be downloaded [here](https://1drv.ms/u/s!AmGvrNE6VIsKjUiF1J2qP4TeNsRc).
+The weights of submitted model (and the corresponding configuration file) on aic480 can be downloaded [here](https://1drv.ms/u/s!AmGvrNE6VIsKjUiF1J2qP4TeNsRc).
 
-The weights of submitted model on UADETRAC can be downloaded [here](https://1drv.ms/u/s!AmGvrNE6VIsKjVK3j5kV6BfDghAU).
+The weights of submitted model (and the corresponding configuration file) on UADETRAC can be downloaded [here](https://1drv.ms/u/s!AmGvrNE6VIsKjVK3j5kV6BfDghAU).
+
+## Test the submitted model on aic1080
+
+1. Download the model weights from [here](https://1drv.ms/u/s!AmGvrNE6VIsKjUevX-7tNAhS_5AF). Put the downloaded file "rfcn_AICityVOC1080_FreezeCOCO_rpnOnly_all_withsignal-0004.params" in the root folder of this repo "RDFCN_UADETRAC_AICITY"
+
+2. Install the provided test images from aic1080 and the downloaded weights (create proper paths and move files accordingly)
+
+`cd RDFCN_UADETRAC_AICITY`
+
+`./test_data_install.sh`
+
+3. Modify the inference code:
+
+* Comment line 242 in Deformable-ConvNets/rfcn/functions/inference_rcnn.py if you don't want to see labeled images on run time. By commenting line 242, the program will only output .txt detection files to "Deformable-ConvNets/data/output".
+
+* Change the threshold at line 234 in Deformable-ConvNets/rfcn/functions/inference_rcnn.py. The current theshold is set at 0.001 meaning almost all the regional proposals will be outputed. 
+
+4. Test the model by running:
+
+`cd Deformable-ConvNets`
+
+`python experiments/rfcn/rfcn_Inference_Shuo_AICity.py --cfg experiments/rfcn//cfgs/resnet_v1_101_voc0712_rfcn_dcn_Shuo_AICityVOC1080_FreezeCOCO_rpnOnly_all_withsignal.yaml`
 
 ## Experimental Results
 

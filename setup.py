@@ -25,6 +25,9 @@ copyfile('UA_DETRAC.py',os.path.join(dst_dir,'lib/dataset','UA_DETRAC.py'))
 copyfile('__init__.py',os.path.join(dst_dir,'lib/dataset','__init__.py'))
 
 #install sample experiments
-copyfile('RDFCN_ISU_Shuo_AICity_AIC1080_FreezeRPNfromCOCO_15cls.yaml',os.path.join(dst_dir,'experiments/rfcn/cfgs','RDFCN_ISU_Shuo_AICity_AIC1080_FreezeRPNfromCOCO_15cls.yaml'))
+copyfile('resnet_v1_101_voc0712_rfcn_dcn_Shuo_AICityVOC1080_FreezeCOCO_rpnOnly_all_withsignal.yaml',os.path.join(dst_dir,'experiments/rfcn/cfgs','resnet_v1_101_voc0712_rfcn_dcn_Shuo_AICityVOC1080_FreezeCOCO_rpnOnly_all_withsignal.yaml'))
 copyfile('RDFCN_ISU_Shuo_UADETRAC_end2end.yaml',os.path.join(dst_dir,'experiments/rfcn/cfgs','RDFCN_ISU_Shuo_UADETRAC_end2end.yaml'))
 
+#install other changes
+copyfile('tester_Shuo.py',os.path.join(dst_dir,'rfcn/core','tester_Shuo.py'))
+copyfile('loader.py',os.path.join(dst_dir,'rfcn/core','loader.py'))
