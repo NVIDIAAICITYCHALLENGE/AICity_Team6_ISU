@@ -2,7 +2,7 @@
 # Deformable Convolutional Networks
 # Copyright (c) 2017 Microsoft
 # Licensed under The Apache-2.0 License [see LICENSE for details]
-# Written by Yuwen Xiong
+# Written by Shuo Wang
 # --------------------------------------------------------
 import os
 import sys
