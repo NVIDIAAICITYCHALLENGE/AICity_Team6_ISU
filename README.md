@@ -137,21 +137,23 @@ The weights of submitted model (and the corresponding configuration file) on UAD
 
 ## Test the submitted model on aic1080
 
-1. Download the model weights from [here](https://1drv.ms/u/s!AmGvrNE6VIsKjUevX-7tNAhS_5AF). Put the downloaded file "rfcn_AICityVOC1080_FreezeCOCO_rpnOnly_all_withsignal-0004.params" in the root folder of this repo "RDFCN_UADETRAC_AICITY"
+1. Finish the Installation
 
-2. Install the provided test images from aic1080 and the downloaded weights (create proper paths and move files accordingly)
+2. Download the model weights from [here](https://1drv.ms/u/s!AmGvrNE6VIsKjUevX-7tNAhS_5AF). Put the downloaded file "rfcn_AICityVOC1080_FreezeCOCO_rpnOnly_all_withsignal-0004.params" in the root folder of this repo "RDFCN_UADETRAC_AICITY"
+
+3. Install the provided test images from aic1080 and the downloaded weights (create proper paths and move files accordingly)
 
 `cd RDFCN_UADETRAC_AICITY`
 
 `./test_data_install.sh`
 
-3. Modify the inference code:
+4. Modify the inference code:
 
 * Comment line 242 in Deformable-ConvNets/rfcn/functions/inference_rcnn.py if you don't want to see labeled images on run time. By commenting line 242, the program will only output .txt detection files to "Deformable-ConvNets/data/output".
 
 * Change the threshold at line 234 in Deformable-ConvNets/rfcn/functions/inference_rcnn.py. The current theshold is set at 0.001 meaning almost all the regional proposals will be outputed. 
 
-4. Test the model by running:
+5. Test the model by running:
 
 `cd Deformable-ConvNets`
 
