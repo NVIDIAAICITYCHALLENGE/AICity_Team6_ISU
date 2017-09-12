@@ -10,9 +10,9 @@ This repository contains the source codes of RDFCN implementation for the detect
 
 The codes have been tested on: 
 
-* Ubuntu 16.04, NVIDIA TITIAN X GPU, Python 2.7. 
+* Ubuntu 16.04, NVIDIA TITIAN X GPU, Python 2.7 (both training and inference). 
 
-* NVIDIA Jetson TX2, Python 2.7.
+* NVIDIA Jetson TX2, Python 2.7 (inference only).
 
 [//]: # (Image References)
 
