@@ -99,6 +99,8 @@ def train_net(args, ctx, pretrained, epoch, prefix, begin_epoch, end_epoch, lr, 
     #    sym_instance.init_weight(config, arg_params, aux_params)
 
     print('transfer learning...')
+    
+    # Choose the initialization weights (COCO or UADETRAC or pretrained)
     #arg_params, aux_params = load_param('/raid10/home_ext/Deformable-ConvNets/output/rfcn_dcn_Shuo_UADTRAC/resnet_v1_101_voc0712_rfcn_dcn_Shuo_UADETRAC/trainlist_full/rfcn_UADTRAC', 5, convert=True)
     #arg_params, aux_params = load_param('/raid10/home_ext/Deformable-ConvNets/model/rfcn_dcn_coco', 0, convert=True)
     arg_params, aux_params = load_param('/raid10/home_ext/Deformable-ConvNets/output/rfcn_dcn_Shuo_AICity/resnet_v1_101_voc0712_rfcn_dcn_Shuo_AICityVOC1080_FreezeCOCO_rpnOnly_all/1080_all/rfcn_AICityVOC1080_FreezeCOCO_rpnOnly_all', 4, convert=True)

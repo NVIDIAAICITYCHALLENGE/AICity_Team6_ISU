@@ -1022,10 +1022,10 @@ class resnet_v1_101_rfcn_dcn(Symbol):
         self.init_weight_rfcn(cfg, arg_params, aux_params)
 
     def init_weight_Shuo(self, cfg, arg_params, aux_params):
-	#self.init_weight_rfcn(cfg, arg_params, aux_params)
-	arg_params['rfcn_cls_weight'] = mx.random.normal(0, 0.01, shape=self.arg_shape_dict['rfcn_cls_weight'])
+        #self.init_weight_rfcn(cfg, arg_params, aux_params)
+        arg_params['rfcn_cls_weight'] = mx.random.normal(0, 0.01, shape=self.arg_shape_dict['rfcn_cls_weight'])
         arg_params['rfcn_cls_bias'] = mx.nd.zeros(shape=self.arg_shape_dict['rfcn_cls_bias'])
-	arg_params['rfcn_cls_offset_t_weight'] = mx.nd.zeros(shape=self.arg_shape_dict['rfcn_cls_offset_t_weight'])
+        arg_params['rfcn_cls_offset_t_weight'] = mx.nd.zeros(shape=self.arg_shape_dict['rfcn_cls_offset_t_weight'])
         arg_params['rfcn_cls_offset_t_bias'] = mx.nd.zeros(shape=self.arg_shape_dict['rfcn_cls_offset_t_bias'])
 
 
