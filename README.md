@@ -109,21 +109,18 @@ b. Then install MXnet libraries for Jetson TX2 as described [here](http://mxnet.
 
 4. Model training and Inference
 
-* To train model on UADETRAC, run:
+* To train model from scratch (for both AICITY and UADETRAC), run:
 
 `python experiments/rfcn/rfcn_end2end_train_Shuo_UADETRAC.py --cfg path/to/your/configuration/file`
 
-* To detect vechiles from the test dataset using trained model on UADETRAC, run:
+Note: For AICITY, based on our experience "training from scratch" doesn't yield good model. Please refer to "Transfer Learning" section for other solution.
+
+* To detect vechiles from the test dataset, run:
 
 `python experiments/rfcn/rfcn_Inference_Shuo_UADETRAC.py --cfg path/to/your/configuration/file`
 
-* To train model on AICity using transfer learning (the weights trained on COCO are used as default), run:
-
-`python experiments/rfcn/rfcn_transfer_learning_train_Shuo_AICity.py --cfg path/to/your/configuration/file`
-
-* To detect vechiles from the test dataset using trained model on UADETRAC, run:
-
 `python experiments/rfcn/rfcn_Inference_Shuo_AICity.py --cfg path/to/your/configuration/file`
+
 
 Two sample configuration files, one for UADETRAC and one for AICity, have been added to `experiments/rfcn/cfgs/`
 
@@ -134,6 +131,26 @@ The weights of submitted model (and the corresponding configuration file) on aic
 The weights of submitted model (and the corresponding configuration file) on aic480 can be downloaded [here](https://1drv.ms/u/s!AmGvrNE6VIsKjUiF1J2qP4TeNsRc).
 
 The weights of submitted model (and the corresponding configuration file) on UADETRAC can be downloaded [here](https://1drv.ms/u/s!AmGvrNE6VIsKjVK3j5kV6BfDghAU).
+
+## Transfer Learning
+
+One major contribution of this repo is adding a transfer learning module to the original implementation.
+
+To train model on AICity using transfer learning, run:
+
+python experiments/rfcn/rfcn_transfer_learning_train_Shuo_AICity.py --cfg path/to/your/configuration/file
+
+There are multiple ways of transfer learning in this RFCN structure:
+
+1. Initialize using pretrained weights then fine-tune all the weight by training on AICITY data.
+
+2. Initialize using pretrained weights, freeze the weights in backbone resnet-101 and RPN, then fine-tune the location-sensitive score maps feature extractor and the output layer by training on AICITY data.
+
+3. Initialize using pretrained weights, freeze all the weights except the outlayer, then only fine-tune the outlayer by training on AICITY data.
+
+Those three strategies have been implemented in "transfer_learning_end2end_freezeNo.py", "transfer_learning_end2end_freezeRPN.py", "transfer_learning_end2end_freezeBoth.py", respectively. To switch between different strategies, replace the codes in "transfer_learning_end2end.py" (placed in rfcn/ after running setup.py) with the one you want. You can choose the initialization weights by changing the codes starting at line 103 in "transfer_learning_end2end.py"
+
+Some insights of how we eventually selected transfer learning (the second strategy) can be found in the presentation "experiments_before_workshop.pptx" in `presentations/`
 
 ## Test the submitted model on aic1080
 
@@ -194,6 +211,8 @@ The [detailed results](http://smart-city-conference.com/AICityChallenge/results.
 ![alt text][1080]
 
 A preprocessed video demonstrating the detection on aic1080 can be found [here](https://youtu.be/F-lWyJ5Trk4). 0.2 is used as the detection confidence threshold in the demonstration video.
+
+The workshop presentation can be found in `presentations/`
 
 ### AVSS2017 UA_DETRAC Challenge
 ​​
