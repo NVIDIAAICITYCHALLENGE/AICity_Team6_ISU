@@ -85,7 +85,7 @@ For installing MXnet on NVIDIA Jetson TX2, if the above [installation instructio
 a. MxNet is only compatible with opencv-python >= 3.2.0.
 Please first upgrade the OpenCV libraries for Jetson platform as described in [here](http://www.jetsonhacks.com/2017/04/05/build-opencv-nvidia-jetson-tx2/)
 
-b. Then install MXnet libraries for Jetson TX2 as described [here](http://mxnet.io/get_started/install.html) (Linux - Python - GPU - Build From Source).  
+b. Then install MXnet libraries for Jetson TX2 as described [here](http://mxnet.io/get_started/install.html) (Devices - NVIDIA Jetson TX2).  
 
 2. clone this repo into the same directory of Deformable-ConvNets:
 
