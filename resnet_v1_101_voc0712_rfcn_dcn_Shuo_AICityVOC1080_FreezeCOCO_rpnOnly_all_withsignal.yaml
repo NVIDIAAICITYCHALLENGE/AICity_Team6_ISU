@@ -54,7 +54,7 @@ dataset:
   dataset_path: "./data/data_Shuo/"
   image_set: 1080_all
   root_path: "./data"
-  test_image_set: 1080_demo
+  test_image_set: 1080_test
   proposal: rpn
 TRAIN:
   lr: 0.0005
