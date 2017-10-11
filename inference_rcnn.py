@@ -231,7 +231,7 @@ def inference_rcnn_AICity(cfg, dataset, image_set, root_path, dataset_path,
         cls_dets = np.hstack((cls_boxes, cls_scores))
         keep = nms(cls_dets)
         cls_dets = cls_dets[keep, :]
-        threshold = 0.001 # confidence thrshold between 0 and 1
+        threshold = 0.2 # confidence thrshold between 0 and 1
         cls_dets = cls_dets[cls_dets[:, -1] > threshold, :]
         dets_nms.append(cls_dets)
     print 'testing {} {:.4f}s'.format(image_name, toc())
