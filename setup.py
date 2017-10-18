@@ -4,7 +4,7 @@ import os
 # path to the Deformable-ConvNets
 dst_dir = '../Deformable-ConvNets'
 
-
+print "putting files into the right positions ..."
 #install codes of inference pipeline to output detection .txt files one per image
 copyfile('inference_rcnn.py',os.path.join(dst_dir,'rfcn/function','inference_rcnn.py'))
 copyfile('Inference_Shuo_AICity.py',os.path.join(dst_dir,'rfcn','Inference_Shuo_AICity.py'))
@@ -31,3 +31,5 @@ copyfile('RDFCN_ISU_Shuo_UADETRAC_end2end.yaml',os.path.join(dst_dir,'experiment
 #install other changes
 copyfile('tester_Shuo.py',os.path.join(dst_dir,'rfcn/core','tester_Shuo.py'))
 copyfile('loader.py',os.path.join(dst_dir,'rfcn/core','loader.py'))
+
+print "done"
