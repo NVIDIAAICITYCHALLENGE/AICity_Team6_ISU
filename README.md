@@ -87,7 +87,7 @@ Please first upgrade the OpenCV libraries for Jetson platform as described in [h
 
 b. Then install MXnet libraries for Jetson TX2 as described [here](http://mxnet.io/get_started/install.html) (Devices - NVIDIA Jetson TX2).  
 
-2. clone this repo into the same directory of Deformable-ConvNets:
+2. clone this repo into the root/parent directory of Deformable-ConvNets:
 
 `cd path/to/Deformable-ConvNets/..`
 
