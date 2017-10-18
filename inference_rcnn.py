@@ -244,7 +244,7 @@ def inference_rcnn_AICity(cfg, dataset, image_set, root_path, dataset_path,
         nnn = nnn + 1
         image_name_length = len(image_name.split('/'))
         magefile_name = image_name.split('/')[image_name_length-1]
-        image_name_lean = imagefile_name.split('.')[0]
+        image_name_lean = image_name.split('.')[0]
         
         if not os.path.exists(os.path.join('data', 'output')):
             os.makedirs(os.path.join('data', 'output'))
