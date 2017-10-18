@@ -216,50 +216,50 @@ def inference_rcnn_AICity(cfg, dataset, image_set, root_path, dataset_path,
     classes = ['Car','SUV','SmallTruck','MediumTruck','LargeTruck','Pedestrian','Bus','Van','GroupOfPeople','Bicycle', 'Motorcycle','TrafficSignal-Green', 'TrafficSignal-Yellow', 'TrafficSignal-Red']
     #,'Pedestrian', 'GroupOfPeople','Bicycle', 'Motorcycle','TrafficSignal-Green', 'TrafficSignal-Yellow', 'TrafficSignal-Red'
     for im_info, data_batch in test_data:
-	print nnn
-	#print 'roidb[nnn]:',roidb[nnn]['image']
-	image_name = roidb[nnn]['image']
-	tic()
-    scales = [iim_info[0, 2] for iim_info in im_info]
-    scores_all, boxes_all, data_dict_all = im_detect(predictor, data_batch, data_names, scales, cfg)
-	boxes = boxes_all[0].astype('f')
-    scores = scores_all[0].astype('f')
-	dets_nms = []
-    for j in range(1, scores.shape[1]):
-        cls_scores = scores[:, j, np.newaxis]
-        cls_boxes = boxes[:, 4:8] if cfg.CLASS_AGNOSTIC else boxes[:, j * 4:(j + 1) * 4]
-        cls_dets = np.hstack((cls_boxes, cls_scores))
-        keep = nms(cls_dets)
-        cls_dets = cls_dets[keep, :]
-        threshold = 0.2 # confidence thrshold between 0 and 1
-        cls_dets = cls_dets[cls_dets[:, -1] > threshold, :]
-        dets_nms.append(cls_dets)
-    print 'testing {} {:.4f}s'.format(image_name, toc())
-    # visualize
-    im = cv2.imread(image_name)
-    im = cv2.cvtColor(im, cv2.COLOR_BGR2RGB)
-	
-	#print 'cls_dets:',cls_dets
-    show_boxes(im, dets_nms, classes, 1)
-	nnn = nnn + 1
-	image_name_length = len(image_name.split('/'))
-	imagefile_name = image_name.split('/')[image_name_length-1]
-	image_name_lean = imagefile_name.split('.')[0]
-    
-    if not os.path.exists(os.path.join('data', 'output')):
-        os.makedirs(os.path.join('data', 'output'))
-    
-	output_file = os.path.join('data', 'output', image_name_lean+ '.txt')
-	
+        print nnn
+        #print 'roidb[nnn]:',roidb[nnn]['image']
+        image_name = roidb[nnn]['image']
+        tic()
+        scales = [iim_info[0, 2] for iim_info in im_info]
+        scores_all, boxes_all, data_dict_all = im_detect(predictor, data_batch, data_names, scales, cfg)
+        boxes = boxes_all[0].astype('f')
+        scores = scores_all[0].astype('f')
+        dets_nms = []
+        for j in range(1, scores.shape[1]):
+            cls_scores = scores[:, j, np.newaxis]
+            cls_boxes = boxes[:, 4:8] if cfg.CLASS_AGNOSTIC else boxes[:, j * 4:(j + 1) * 4]
+            cls_dets = np.hstack((cls_boxes, cls_scores))
+            keep = nms(cls_dets)
+            cls_dets = cls_dets[keep, :]
+            threshold = 0.2 # confidence thrshold between 0 and 1
+            cls_dets = cls_dets[cls_dets[:, -1] > threshold, :]
+            dets_nms.append(cls_dets)
+        print 'testing {} {:.4f}s'.format(image_name, toc())
+        # visualize
+        im = cv2.imread(image_name)
+        im = cv2.cvtColor(im, cv2.COLOR_BGR2RGB)
+        
+        #print 'cls_dets:',cls_dets
+        show_boxes(im, dets_nms, classes, 1)
+        nnn = nnn + 1
+        image_name_length = len(image_name.split('/'))
+        magefile_name = image_name.split('/')[image_name_length-1]
+        image_name_lean = imagefile_name.split('.')[0]
+        
+        if not os.path.exists(os.path.join('data', 'output')):
+            os.makedirs(os.path.join('data', 'output'))
+        
+        output_file = os.path.join('data', 'output', image_name_lean+ '.txt')
+        
         thefile = open(output_file,'a')
-	
- 	#det_id = 0
-	#for x_small,y_small,x_large,y_large,prob in dets_nms[0]:
-	    #det_id += 1
+        
+        #det_id = 0
+        #for x_small,y_small,x_large,y_large,prob in dets_nms[0]:
+        #det_id += 1
 
-	for cls_idx, cls_name in enumerate(classes):
+        for cls_idx, cls_name in enumerate(classes):
             cls_dets = dets_nms[cls_idx]
             for x_small,y_small,x_large,y_large,prob in cls_dets:
-        	thefile.write(cls_name+' '+str(x_small)+' '+str(y_small)+' '+str(max(x_small+0.01,x_large))+' '+str(max(y_small+0.01,y_large))+' '+str(prob)+'\n')
+                thefile.write(cls_name+' '+str(x_small)+' '+str(y_small)+' '+str(max(x_small+0.01,x_large))+' '+str(max(y_small+0.01,y_large))+' '+str(prob)+'\n')
 
 
