@@ -164,11 +164,11 @@ Some insights of how we eventually selected transfer learning (the second strate
 
 `./test_data_install.sh`
 
-4. Modify the inference code:
+4. Modify the inference code (optional):
 
 * Comment line 242 in Deformable-ConvNets/rfcn/functions/inference_rcnn.py if you don't want to see labeled images on run time. By commenting line 242, the program will only output .txt detection files to "Deformable-ConvNets/data/output".
 
-* Change the threshold at line 234 in Deformable-ConvNets/rfcn/functions/inference_rcnn.py. The current theshold is set at 0.001 meaning almost all the regional proposals will be outputed. 
+* Change the threshold at line 234 in Deformable-ConvNets/rfcn/functions/inference_rcnn.py. The current theshold is set at 0.2.  
 
 5. Test the model by running:
 
