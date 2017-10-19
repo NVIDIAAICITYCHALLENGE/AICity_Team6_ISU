@@ -99,7 +99,37 @@ b. Then install MXnet libraries for Jetson TX2 as described [here](http://mxnet.
 
 `python setup.py`
 
-## Usage
+## Test the submitted model on aic1080
+
+1. Finish the Installation
+
+2. Download the model weights from [here](https://1drv.ms/u/s!AmGvrNE6VIsKjUevX-7tNAhS_5AF). Put the downloaded file "rfcn_AICityVOC1080_FreezeCOCO_rpnOnly_all_withsignal-0004.params" in the root folder of this repo "RDFCN_UADETRAC_AICITY"
+
+3. Install the provided test images from aic1080 and the downloaded weights (create proper paths and move files accordingly)
+
+`cd RDFCN_UADETRAC_AICITY`
+
+`./test_data_install.sh`
+
+4. Modify the inference code (optional):
+
+* Comment line 242 in Deformable-ConvNets/rfcn/functions/inference_rcnn.py if you don't want to see labeled images on run time. By commenting line 242, the program will only output .txt detection files to "Deformable-ConvNets/data/output".
+
+* Change the threshold at line 234 in Deformable-ConvNets/rfcn/functions/inference_rcnn.py. The current theshold is set at 0.2.  
+
+5. Test the model by running:
+
+`cd Deformable-ConvNets`
+
+`sh demo.sh`
+
+or alternatively:
+
+`cd Deformable-ConvNets`
+
+`python experiments/rfcn/rfcn_Inference_Shuo_AICity.py --cfg experiments/rfcn/cfgs/resnet_v1_101_voc0712_rfcn_dcn_Shuo_AICityVOC1080_FreezeCOCO_rpnOnly_all_withsignal.yaml`
+
+## General Usage
 
 1. Download data from UADETRAC and AICity into `data/` folder
 
@@ -120,7 +150,6 @@ Note: For AICITY, based on our experience "training from scratch" doesn't yield 
 `python experiments/rfcn/rfcn_Inference_Shuo_UADETRAC.py --cfg path/to/your/configuration/file`
 
 `python experiments/rfcn/rfcn_Inference_Shuo_AICity.py --cfg path/to/your/configuration/file`
-
 
 Two sample configuration files, one for UADETRAC and one for AICity, have been added to `experiments/rfcn/cfgs/`
 
@@ -151,36 +180,6 @@ There are multiple ways of transfer learning in this RFCN structure:
 Those three strategies have been implemented in "transfer_learning_end2end_freezeNo.py", "transfer_learning_end2end_freezeRPN.py", "transfer_learning_end2end_freezeBoth.py", respectively. To switch between different strategies, replace the codes in "transfer_learning_end2end.py" (placed in rfcn/ after running setup.py) with the one you want. You can choose the initialization weights by changing the codes starting at line 103 in "transfer_learning_end2end.py"
 
 Some insights of how we eventually selected transfer learning (the second strategy) can be found in the presentation "experiments_before_workshop.pptx" in `presentations/`
-
-## Test the submitted model on aic1080
-
-1. Finish the Installation
-
-2. Download the model weights from [here](https://1drv.ms/u/s!AmGvrNE6VIsKjUevX-7tNAhS_5AF). Put the downloaded file "rfcn_AICityVOC1080_FreezeCOCO_rpnOnly_all_withsignal-0004.params" in the root folder of this repo "RDFCN_UADETRAC_AICITY"
-
-3. Install the provided test images from aic1080 and the downloaded weights (create proper paths and move files accordingly)
-
-`cd RDFCN_UADETRAC_AICITY`
-
-`./test_data_install.sh`
-
-4. Modify the inference code (optional):
-
-* Comment line 242 in Deformable-ConvNets/rfcn/functions/inference_rcnn.py if you don't want to see labeled images on run time. By commenting line 242, the program will only output .txt detection files to "Deformable-ConvNets/data/output".
-
-* Change the threshold at line 234 in Deformable-ConvNets/rfcn/functions/inference_rcnn.py. The current theshold is set at 0.2.  
-
-5. Test the model by running:
-
-`cd Deformable-ConvNets`
-
-`sh demo.sh`
-
-or alternatively:
-
-`cd Deformable-ConvNets`
-
-`python experiments/rfcn/rfcn_Inference_Shuo_AICity.py --cfg experiments/rfcn/cfgs/resnet_v1_101_voc0712_rfcn_dcn_Shuo_AICityVOC1080_FreezeCOCO_rpnOnly_all_withsignal.yaml`
 
 ## Experimental Results
 
