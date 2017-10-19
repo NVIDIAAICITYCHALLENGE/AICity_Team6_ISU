@@ -15,3 +15,5 @@ mkdir ../Deformable-ConvNets/output/rfcn_dcn_Shuo_AICity
 mkdir ../Deformable-ConvNets/output/rfcn_dcn_Shuo_AICity/resnet_v1_101_voc0712_rfcn_dcn_Shuo_AICityVOC1080_FreezeCOCO_rpnOnly_all_withsignal
 mkdir ../Deformable-ConvNets/output/rfcn_dcn_Shuo_AICity/resnet_v1_101_voc0712_rfcn_dcn_Shuo_AICityVOC1080_FreezeCOCO_rpnOnly_all_withsignal/1080_all
 mv rfcn_AICityVOC1080_FreezeCOCO_rpnOnly_all_withsignal-0004.params ../Deformable-ConvNets/output/rfcn_dcn_Shuo_AICity/resnet_v1_101_voc0712_rfcn_dcn_Shuo_AICityVOC1080_FreezeCOCO_rpnOnly_all_withsignal/1080_all/rfcn_AICityVOC1080_FreezeCOCO_rpnOnly_all_withsignal-0004.params
+
+mv demo.sh ../Deformable-ConvNets/demo.sh
