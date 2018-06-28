@@ -31,5 +31,6 @@ copyfile('RDFCN_ISU_Shuo_UADETRAC_end2end.yaml',os.path.join(dst_dir,'experiment
 #install other changes
 copyfile('tester_Shuo.py',os.path.join(dst_dir,'rfcn/core','tester_Shuo.py'))
 copyfile('loader.py',os.path.join(dst_dir,'rfcn/core','loader.py'))
+copyfile('module.py',os.path.join(dst_dir,'rfcn/core','module.py'))
 
 print "done"
